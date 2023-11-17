@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+
+    <header>
+        <h2>Calculadora</h2>
+    </header>
+
+    <main>
+
+        <form action="/calculadora" method="post">
+
+            <div>
+                <label for="numero-1">Número: </label>
+                <input id="numero-1" name="numero-1" type="text" value="{{ numero_1 }}" required>
+              </div>
+          
+              <select name="operacao" id="operacao">
+                <option value="A" {% if operacao == "A" %}selected{% endif %}>+</option>
+                <option value="S" {% if operacao == "S" %}selected{% endif %}>-</option>
+                <option value="M" {% if operacao == "M" %}selected{% endif %}>*</option>
+                <option value="D" {% if operacao == "D" %}selected{% endif %}>/</option>
+              </select>
+          
+              <div>
+                <label for="numero-2">Número: </label>
+                <input id="numero-2" name="numero-2" type="text" value="{{ numero_2 }}" required>
+              </div>
+          
+              <input type="submit" value="Calcular">
+            
+        </form>
+
+        {% if resultado %}
+            <p><span>Resultado:</span>{{ resultado }}</p>
+        {% endif %}
+
+    </main>
+    
+</body>
+</html>
